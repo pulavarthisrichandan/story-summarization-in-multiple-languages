@@ -143,24 +143,18 @@ def Story_Summarizer(path, des_language, input_user):
         speech_text = r.recognize_google(audio_listened, language = des_language)
       except sr.UnknownValueError as e:
         continue
-        # print("Error:", str(e))
       else:
         speech_text = f"{speech_text.capitalize()}. "
-        # print(chunk_filename, ":", speech_text)
         I_L_whole_text += speech_text
         translated_text = translator.translate(speech_text, lang_tgt = 'en')
         translated_text = str(translated_text.text)
         text += translated_text
-        # print("\n \n" + translated_text)
-
-  # print(I_L_whole_text)
-  # print(text)
+        
 
   tokenized_sentence = nltk.sent_tokenize(text)
   # tokenized_sentence
   tokenized_sentence = text.split('.')
   # # tokenized_sentence
-  # text = remove_special_characters(str(text))
   text = re.sub(r'\d+', '', text)
   tokenized_words_with_stopwords = nltk.word_tokenize(text)
   tokenized_words = [word for word in tokenized_words_with_stopwords if word not in stopwords]
@@ -168,9 +162,7 @@ def Story_Summarizer(path, des_language, input_user):
   tokenized_words = [word.lower() for word in tokenized_words]
   tokenized_words = lemmatize_words(tokenized_words)
   word_freq = freq(tokenized_words)
-  # input_user = int(input('Percentage of information to retain(in percent):'))            # Percentage% of data to be in Summary  """input_user"""
   no_of_sentences = int((input_user * len(tokenized_sentence))/100)
-  # print(f"Number of sentenses: \n {no_of_sentences}")
   c = 1
   sentence_with_importance = {}
   for sent in tokenized_sentence:
@@ -198,12 +190,4 @@ def Story_Summarizer(path, des_language, input_user):
   translator = googletrans.Translator()
   translation = translator.translate(summary, dest = des_language)
   summary_I_L = translation.text
-  # summary_I_L
-  # print("Summary in input language")
-  # print("\n")
-  # print("Summary:")
-  # print(summary)
-  # outF = open('summary.txt',"w")
-  # outF.write(summary)
   return I_L_whole_text, len(I_L_whole_text.split(" ")), summary_I_L, len(summary_I_L.split(" ")), text, len(text.split(" ")), summary, len(summary.split(" "))
-  # return I_L_whole_text, summary_I_L, len(I_L_whole_text.split(" ")), len(summary_I_L.split(" "))

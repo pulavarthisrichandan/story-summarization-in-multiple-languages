@@ -63,25 +63,6 @@
             };
             xhr.send(formData);
         }
-
-        // update progress bar
-        socket.on('progress', function (data) {
-            var progress = document.getElementById("progress-bar");
-            progress.style.width = data.percentage + '%';
-        });
-
-        // start progress bar
-        socket.on('start_progress', function (data) {
-            var progress = document.getElementById("progress-bar");
-            progress.style.width = '0%';
-            progress.style.display = 'block';
-        });
-
-        // end progress bar
-        socket.on('end_progress', function (data) {
-            var progress = document.getElementById("progress-bar");
-            progress.style.display = 'none';
-        });
     </script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
