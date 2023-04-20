@@ -122,9 +122,9 @@ def Story_Summarizer(path, des_language, input_user):
 
   sound = AudioSegment.from_wav(path)  
   chunks = split_on_silence(sound,
-      min_silence_len = 300,
+      min_silence_len = 500,
       silence_thresh = sound.dBFS-14,
-      keep_silence=800,
+      keep_silence = 500,
   )
   folder_name = "audio-chunks"
 
