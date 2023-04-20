@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home_Page</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!--<link rel="stylesheet" href="/Static/styles.css" />-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body style="background-color:rgb(165, 134, 145)">  <!--rgb(108, 108, 118) -->
+    <div class="container">
+        <div class="jumbotron1 jumbotron-fluid">
+            <div class="jumbotron jumbotron-fluid">
+                <div class="container">
+                    <h1 style="text-align:center" , class="display4heading">Story Summarization</h1>
+                    <p style="text-align:center" , class="lead">shorten what you read to the most important ideas</p>
+                </div>
+            </div>
+            <form style="text-align:center" , action="/analyze" method="POST" enctype="multipart/form-data">
+                <textarea name="source_lang" class="from-control" , placeholder="Enter input Language" cols="40"
+                    rows="1"></textarea>
+                <br>
+                <textarea name="percentage_input" class="from-control" , placeholder="Enter percentage of required data"
+                    cols="40" rows="1"></textarea>
+                <br>
+                <input type="file" name="file" />
+                <br>
+                <input type="submit" value="Upload">
+                <br><br>
+                
+
+            </form>
+        </div>
+
+        <style>
+            ::placeholder {
+                font-weight: bold;
+            }
+        </style>
+        <br>
+    </div>
+    
+
+
+    <script>
+        // send form data to server
+        function submitForm() {
+            var formData = new FormData(document.getElementById("story-form"));
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', '/analyze', true);
+            xhr.upload.onprogress = function (e) {
+                var percentComplete = (e.loaded / e.total) * 100;
+                socket.emit('progress', { 'percentage': percentComplete });
+            };
+            xhr.onload = function (e) {
+                socket.emit('end_progress', {});
+                window.location.href = "/analyze";
+            };
+            xhr.send(formData);
+        }
+
+        // update progress bar
+        socket.on('progress', function (data) {
+            var progress = document.getElementById("progress-bar");
+            progress.style.width = data.percentage + '%';
+        });
+
+        // start progress bar
+        socket.on('start_progress', function (data) {
+            var progress = document.getElementById("progress-bar");
+            progress.style.width = '0%';
+            progress.style.display = 'block';
+        });
+
+        // end progress bar
+        socket.on('end_progress', function (data) {
+            var progress = document.getElementById("progress-bar");
+            progress.style.display = 'none';
+        });
+    </script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+        </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+        </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+        </script>
+</body>
+
+</html>

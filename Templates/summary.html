@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summarization Page</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <!--<div class="container">-->
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 style="text-align:center" , class="display4heading">Story Summarization</h1>
+            <p style="text-align:center" , class="lead">shorten what you read to the most important ideas</p>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    
+    <div class="container">
+        <div class="jumbotron2 jumbotron-fluid">
+            <div class="container" style="display: flex; justify-content: space-around">
+                <p class="original_text col-sm-8"><font size="+2"><b>Original Text(Source Language)</b></font></p>
+            </div>
+            <br>
+            <br>
+            <div class="container srt">
+                <p class="OriginalText col-sm-30">{{I_L_whole_text}}</p>
+                <br>
+                <button class="btn btn-danger" type="submit">Words_in_OriginalTxt : {{len_I_L_whole_text}}</button>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div class="container">
+        <div class="jumbotron3 jumbotron-fluid">
+            <div class="container" style="display: flex; justify-content: space-around">
+                <p class="Summary_text col-sm-8"><font size="+2"><b>Summarized Text(Source Language)</b></font></p>
+            </div>
+            <br>
+            <br>
+            <div class="container srt">
+                <p class="SummaryText col-sm-30">{{summary_I_L}}</p>
+                <br>
+                <button class="btn btn-success" type="submit">Words_in_SummarizedTxt : {{len_summary_I_L}}</button>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div class="container">
+        <div class="jumbotron4 jumbotron-fluid">
+            <div class="container" style="display: flex; justify-content: space-around">
+                <p class="original_text col-sm-3"><font size="+2"><b>Original Text</b></font></p>
+            </div>
+            <br>
+            <br>
+            <div class="container srt">
+                <p class="OriginalText col-sm-30">{{text}}</p>
+                <br>
+                <button class="btn btn-danger" type="submit">Words_in_OriginalTxt : {{len_text}}</button>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div class="container">
+        <div class="jumbotron5 jumbotron-fluid">
+            <div class="container" style="display: flex; justify-content: space-around">
+                <p class="Summary_text col-sm-6"><font size="+2"><b>Summarized Text</b></font></p>
+            </div>
+            <br>
+            <br>
+            <div class="container srt">
+                <p class="SummaryText col-sm-30">{{summary}}</p>
+                <br>
+                <button class="btn btn-success" type="submit">Words_in_SummarizedTxt : {{len_summary}}</button>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    
+
+    <script 
+        src="https://code.jquery.com/jquery-3.2.1.slim.min.js" 
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" 
+        crossorigin="anonymous">
+    </script>
+    <script 
+        src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" 
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" 
+        crossorigin="anonymous">
+    </script>
+    <script 
+    src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" 
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" 
+    crossorigin="anonymous">
+    </script>
+</body>
+</html>
+
+
+
+
+
+

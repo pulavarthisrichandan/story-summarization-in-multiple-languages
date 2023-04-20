@@ -1,0 +1,169 @@
+/* Set background color of body
+rgb(39, 214, 165); light blue 
+#4caf50 green*/
+body {
+    background-color: rgb(165, 134, 145);
+}
+
+/* Style the container */
+.container {
+    max-width: 1300px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* Style the jumbotron */
+.jumbotron {
+    width: 100%;
+    /* text-align: center; */
+    background-color: #f3f037;
+    padding: 50px;
+    justify-content: center;
+    margin: auto;
+}
+
+.jumbotron1 {
+    width: 100%;
+    /* text-align: center; */
+    background-color:  rgb(39, 214, 165);
+    padding: 50px;
+    justify-content: center;
+    margin: auto;
+}
+
+.jumbotron2 {
+    width: 100%;
+    /* text-align: center; */
+    background-color:  rgb(39, 214, 165);
+    padding: 50px;
+    justify-content: center;
+    margin: auto;
+}
+
+.jumbotron3 {
+    width: 100%;
+    /* text-align: center; */
+    background-color:  rgb(39, 214, 165);
+    padding: 50px;
+    justify-content: center;
+    margin: auto;
+}
+
+.jumbotron4 {
+    width: 100%;
+    /* text-align: center; */
+    background-color:  rgb(39, 214, 165);
+    padding: 50px;
+    justify-content: center;
+    margin: auto;
+}
+
+.jumbotron5 {
+    width: 100%;
+    /* text-align: center; */
+    background-color: rgb(39, 214, 165);
+    padding: 50px;
+    justify-content: center;
+    margin: auto;
+}
+
+/* Style the heading inside jumbotron */
+.display4heading {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Style the paragraph inside jumbotron */
+.lead {
+    font-size: 1.5rem;
+    margin-bottom: 0;
+}
+
+/* Style the form */
+form {
+    margin-top: 50px;
+    text-align: center;
+}
+
+/* Style the textareas inside form */
+textarea {
+    width: 60%;
+    margin-bottom: 20px;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    padding: 10px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    justify-content: center;
+
+}
+
+/* Style the file input inside form */
+input[type="file"] {
+    margin-bottom: 20px;
+}
+
+/* Style the submit button inside form */
+input[type="submit"] {
+    background-color: #7e22bc;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+
+
+/* Style the placeholder text */
+::placeholder {
+    font-weight: bold;
+}
+
+/* center the jumbotron text */
+.heading {
+    text-align: center;
+}
+
+/* center the original text and summarized text headings */
+.original_text,
+.Summary_text {
+    text-align: center;
+}
+
+/* adjust font size and weight for headings */
+.original_text font,
+.Summary_text font {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* adjust container padding and margin */
+.container {
+    padding-top: 20px;
+    margin: auto;
+}
+
+/* adjust button margin and width */
+.btn {
+    margin-left: 150px;
+    width: 200px;
+}
+
+/* adjust original and summarized text font size */
+.OriginalText,
+.SummaryText {
+    font-size: 18px;
+}
+
+/* adjust button colors */
+.btn-danger {
+    background-color: rgb(238, 8, 8);
+    border-color: rgb(238, 8, 8);
+}
+
+.btn-success {
+    background-color: rgb(0, 107, 0);
+    border-color: rgb(0, 107, 0);
+  }
